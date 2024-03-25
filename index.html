@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predict Final Mark</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Predict Final Mark</h1>
+        <form method="post">
+            <label for="quarterly_mark">Quarterly Mark:</label><br>
+            <input type="number" id="quarterly_mark" name="quarterly_mark" min="0" max="100" step="0.01" required><br>
+            <label for="halfyearly_mark">Halfyearly Mark:</label><br>
+            <input type="number" id="halfyearly_mark" name="halfyearly_mark" min="0" max="100" step="0.01" required><br><br>
+            <input type="submit" value="Submit">
+        </form>
+        {% if prediction %}
+        <div class="result">
+            <h2>Result</h2>
+            <p>Predicted Final Mark: {{ prediction }}</p>
+            
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
